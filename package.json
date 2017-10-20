@@ -7,11 +7,12 @@
     "ipcam2mqtt": "index.js"
   },
   "scripts": {
-    "test": "standard && exit 0"
+    "test": "standard && exit 0",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/svrooij/ipcam2mqtt.git"
+    "url": "https://github.com/svrooij/ipcam2mqtt.git"
   },
   "keywords": [
     "ip",
@@ -34,7 +35,8 @@
   },
   "devDependencies": {
     "pre-commit": "^1.2.2",
-    "standard": "^10.0.3"
+    "standard": "^10.0.3",
+    "semantic-release": "^8.2.0"
   },
   "pre-commit": [
     "test"
