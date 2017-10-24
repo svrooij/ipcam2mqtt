@@ -1,6 +1,9 @@
 # ipcam2mqtt
 
 [![npm](https://img.shields.io/npm/v/ipcam2mqtt.svg?style=flat-square)](https://www.npmjs.com/package/ipcam2mqtt)
+[![travis](https://img.shields.io/travis/svrooij/ipcam2mqtt.svg?style=flat-square)](https://travis-ci.org/svrooij/ipcam2mqtt)
+[![Support me on Patreon][badge_patreon]][patreon]
+[![PayPal][badge_paypal_donate]][paypal-donations]
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release)
 
 This node.js application is a bridge between the your IP Cameras (with sound or motion detection) and a mqtt server. That way your can have your home respond to sound detection events.
@@ -60,7 +63,7 @@ Every message starts with the instance name (specified with the `-n` argument), 
 
 ### Connect messages
 
-This bridge uses the `cameras/connected` topic to send retained connection messages. Use this topic to check your if your hue bridge is still running.
+This bridge uses the `cameras/connected` topic to send retained connection messages. Use this topic to check your if your ipcam2mqtt bridge is still running.
 
 - `0` or missing is not connected (set by will functionality).
 - `1` is connected to mqtt, but have not received an image.
@@ -83,6 +86,14 @@ And an image message on `cameras/username/image`, this will just contain the raw
 
 If everything works as expected, you should make the app run in the background automatically. Personally I use PM2 for this. And they have a great [guide for this](http://pm2.keymetrics.io/docs/usage/quick-start/).
 
+To start ipcam2mqtt with PM2, you have to use this command.
+
+```bash
+pm2 start ipcam2mqtt -x -- [regular-options]
+# the -x -- part is to tell pm2 you want to specify arguments to the script. example:
+pm2 start ipcam2mqtt -x -- -n cameras -m mqtt://your.mqtt.host:1883
+```
+
 ## Special thanks
 
 This bridge is inspired on [hue2mqtt.js](https://github.com/hobbyquaker/hue2mqtt.js) by [Sabastian Raff](https://github.com/hobbyquaker). That was a great sample on how to create a globally installed, command-line, something2mqtt bridge.
@@ -91,4 +102,9 @@ The actual FTP server part is mostly copied, improved and simplified from [mqtt-
 
 ## Beer
 
-This bridge took me a lot of hours to build, so I invite everyone using it to [Buy me a beer](https://✌️.tk/beer)
+This bridge took me a lot of hours to build, so I invite everyone using it to [Buy me a beer](https://svrooij.nl/buy-me-a-beer/)
+
+[badge_paypal_donate]: https://svrooij.nl/badges/paypal_donate.svg
+[badge_patreon]: https://svrooij.nl/badges/patreon.svg
+[paypal-donations]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=T9XFJYUSPE4SG
+[patreon]: https://www.patreon.com/svrooij
