@@ -2,7 +2,6 @@
   "name": "ipcam2mqtt",
   "version": "0.0.0-development",
   "description": "A special FTP server for receiving images from IPCameras and forwarding them to MQTT, for use in a smarthome.",
-  "main": "index.js",
   "bin": {
     "ipcam2mqtt": "index.js"
   },
@@ -17,11 +16,14 @@
   "keywords": [
     "ip",
     "camera",
+    "ip camera",
     "mqtt-smarthome",
-    "home",
-    "automation"
+    "home automation"
   ],
   "author": "Stephan van Rooij <github@svrooij.nl> (https://svrooij.nl)",
+  "contributors": [
+    "St. John Johnson <st.john.johnson@gmail.com>"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/svrooij/ipcam2mqtt/issues"
@@ -31,7 +33,7 @@
     "ftpd": "github:nodeftpd/nodeftpd#0d299f78af7f0006a9d5a084614bd8b56a369d1b",
     "mqtt": "^2.13.1",
     "yalm": "^4.1.0",
-    "yargs": "^9.0.1"
+    "yargs": "^10.0.3"
   },
   "devDependencies": {
     "pre-commit": "^1.2.2",
