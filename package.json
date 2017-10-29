@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/svrooij/ipcam2mqtt#readme",
   "dependencies": {
-    "ftpd": "github:nodeftpd/nodeftpd#0d299f78af7f0006a9d5a084614bd8b56a369d1b",
+    "@svrooij/ftpd": "^0.2.16",
     "mqtt": "^2.13.1",
     "yalm": "^4.1.0",
     "yargs": "^10.0.3"
