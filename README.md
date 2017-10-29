@@ -94,6 +94,18 @@ pm2 start ipcam2mqtt -x -- [regular-options]
 pm2 start ipcam2mqtt -x -- -n cameras -m mqtt://your.mqtt.host:1883
 ```
 
+## Docker
+
+You can also run this bridge on docker. Be sure to specify your own mqtt connection string! This command connects port `8821` (you can change this) to the container where the bridge runs at `8021`.
+
+You can also set the other properties by using the `-e "IPCAM2MQTT_...=newvalue"` argument. All the properties can be set with the prefix `IPCAM2MQTT_` followed by the full name.
+
+```bash
+docker run -d -e "IPCAM2MQTT_MQTT=mqtt://your.mqtt.nl:1883" -p 8821:8021 --name ipcam2mqtt svrooij/ipcam2mqtt:latest
+# Open (and follow) the logs
+docker logs ipcam2mqtt -f
+```
+
 ## Special thanks
 
 This bridge is inspired on [hue2mqtt.js](https://github.com/hobbyquaker/hue2mqtt.js) by [Sabastian Raff](https://github.com/hobbyquaker). That was a great sample on how to create a globally installed, command-line, something2mqtt bridge.
