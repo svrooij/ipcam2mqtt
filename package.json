@@ -7,7 +7,7 @@
   },
   "scripts": {
     "test": "standard && exit 0",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
@@ -38,7 +38,7 @@
   "devDependencies": {
     "pre-commit": "^1.2.2",
     "standard": "*",
-    "semantic-release": "^8.2.0"
+    "semantic-release": "^11.0.2"
   },
   "pre-commit": [
     "test"
