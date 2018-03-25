@@ -109,7 +109,7 @@ function publishConnectionStatus (status) {
     return
   }
   currentStatus = status
-   // 1 for mqtt online two for connected to hardware (should this be 2 after first image?)
+  // 1 for mqtt online two for connected to hardware (should this be 2 after first image?)
   client.publish(config.name + '/connected', status, {
     qos: 0,
     retain: true
@@ -291,10 +291,10 @@ function publishState (device, newState, filename) {
   }
 
   client.publish(
-        topic,
-        JSON.stringify(data),
-        {qos: 0, retain: true}
-    )
+    topic,
+    JSON.stringify(data),
+    {qos: 0, retain: true}
+  )
 }
 
 /**
