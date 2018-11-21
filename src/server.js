@@ -21,7 +21,7 @@ function start () {
     topic: config.name + '/connected',
     message: 0,
     qos: 0
-  }}
+  } }
 
   client = mqtt.connect(config.mqtt, mqttOptions)
   setupMqttLogging()
@@ -293,7 +293,7 @@ function publishState (device, newState, filename) {
   client.publish(
     topic,
     JSON.stringify(data),
-    {qos: 0, retain: true}
+    { qos: 0, retain: true }
   )
 }
 
@@ -311,14 +311,14 @@ function publishImage (device, image) {
     client.publish(
       topic,
       image,
-      {qos: 0, retain: true}
+      { qos: 0, retain: true }
     )
   } else if (config.keepImages !== true) {
     log.debug('Clearing image for %s', device)
     client.publish(
       topic,
       null,
-      {qos: 0, retain: true}
+      { qos: 0, retain: true }
     )
   }
 }
