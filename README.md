@@ -13,7 +13,7 @@ It's intended as a building block in heterogenous smart home environments where 
 
 ## Installation
 
-Using ipcam2mqtt is really easy, but it requires at least [Node.js](https://nodejs.org/) v6 or higher. (This app is tested against v6 and v8).
+Using ipcam2mqtt is really easy, but it requires at least [Node.js](https://nodejs.org/) v6 or higher. (This app is tested against the latest version and the last lts version).
 
 `sudo npm install -g ipcam2mqtt`
 
