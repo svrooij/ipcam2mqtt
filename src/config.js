@@ -3,27 +3,28 @@ const config = require('yargs')
   .env('IPCAM2MQTT')
   .usage(pkg.name + ' ' + pkg.version + '\r\nUsage: $0 [options]')
   .describe('m', 'mqtt broker url. See https://github.com/svrooij/ipcam2mqtt#mqtt-url')
-  .describe('n', 'instance name. used as mqtt client id and as topic prefix')
+  .describe('i', 'instance name. used as mqtt client id and as topic prefix')
   .describe('p', 'The port to run on')
   .describe('timeout', 'The timeout in seconds for resetting back to inactive, -1 for no reset')
   .describe('k', 'Set this if you want to keep the images in mqtt')
   .describe('h', 'Show this help')
-  .describe('l', 'possiblevalues: "error", "warn","info","debug"')
+  .describe('v', 'Set the verbosity.')
   .alias({
     h: 'help',
-    l: 'logging',
+    v: 'verbosity',
     m: 'mqtt',
-    n: 'name',
+    i: 'instance',
     p: 'port',
     k: 'keep-images'
   })
   .default({
-    l: 'info',
+    v: 'info',
     m: 'mqtt://127.0.0.1',
-    n: 'cameras',
+    i: 'cameras',
     p: 8000,
     timeout: 10
   })
+  .choices('v', ['error', 'warn', 'info', 'debug'])
   .boolean(['k'])
   .version()
   .help('help')
