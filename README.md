@@ -1,11 +1,11 @@
 # ipcam2mqtt
 
-[![npm](https://img.shields.io/npm/v/ipcam2mqtt.svg?style=flat-square)](https://www.npmjs.com/package/ipcam2mqtt)
-[![travis](https://img.shields.io/travis/svrooij/ipcam2mqtt.svg?style=flat-square)](https://travis-ci.org/svrooij/ipcam2mqtt)
-[![mqtt-smarthome](https://img.shields.io/badge/mqtt-smarthome-blue.svg?style=flat-square)](https://github.com/mqtt-smarthome/mqtt-smarthome)
-[![Support me on Patreon][badge_patreon]][patreon]
-[![PayPal][badge_paypal_donate]][paypal-donations]
-[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release)
+[![npm][badge_npm]][link_npm]
+[![Support me on Github][badge_sponsor]][link_sponsor]
+[![travis][badge_travis]][link_travis]
+[![github issues][badge_issues]][link_issues]
+[![mqtt-smarthome](https://img.shields.io/badge/mqtt-smarthome-blue.svg)](https://github.com/mqtt-smarthome/mqtt-smarthome)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 This node.js application is a bridge between the your IP Cameras (with sound or motion detection) and a mqtt server. That way your can have your home respond to sound detection events.
 
@@ -13,29 +13,30 @@ It's intended as a building block in heterogenous smart home environments where 
 
 ## Installation
 
-Using ipcam2mqtt is really easy, but it requires at least [Node.js](https://nodejs.org/) v6 or higher. (This app is tested against the latest version and the last lts version).
+Using ipcam2mqtt is really easy, but it requires at least [Node.js](https://nodejs.org/) v6 or higher.
+(This app is tested against node v10, v13 and the latest lts version).
 
-`sudo npm install -g ipcam2mqtt`
+`npm install -g ipcam2mqtt`
 
 ## Usage
 
 ```plain
 ipcam2mqtt 0.0.0-development
-Usage: ipcam2mqtt [options]
+Usage: index.js [options]
 
 Options:
   -m, --mqtt         mqtt broker url. See
                      https://github.com/svrooij/ipcam2mqtt#mqtt-url
                                                    [default: "mqtt://127.0.0.1"]
-  -n, --name         instance name. used as mqtt client id and as topic prefix
+  -i, --instance     instance name. used as mqtt client id and as topic prefix
                                                             [default: "cameras"]
   -p, --port         The port to run on                          [default: 8000]
   --timeout          The timeout in seconds for resetting back to inactive, -1
                      for no reset                                  [default: 10]
   -k, --keep-images  Set this if you want to keep the images in mqtt   [boolean]
   -h, --help         Show help                                         [boolean]
-  -l, --logging      possiblevalues: "error", "warn","info","debug"
-                                                               [default: "info"]
+  -v, --verbosity    Set the verbosity.
+                   [choices: "error", "warn", "info", "debug"] [default: "info"]
   --version          Show version number                               [boolean]
 ```
 
@@ -60,7 +61,7 @@ You now have and FTP server running on your computer. Now you can configure the 
 
 ## Topics
 
-Every message starts with the instance name (specified with the `-n` argument), which defaults to `cameras` so we'll asume the default.
+Every message starts with the instance name (specified with the `-i` argument), which defaults to `cameras` so we'll asume the default.
 
 ### Connect messages
 
@@ -92,17 +93,17 @@ To start ipcam2mqtt with PM2, you have to use this command.
 ```bash
 pm2 start ipcam2mqtt -x -- [regular-options]
 # the -x -- part is to tell pm2 you want to specify arguments to the script. example:
-pm2 start ipcam2mqtt -x -- -n cameras -m mqtt://your.mqtt.host:1883
+pm2 start ipcam2mqtt -x -- -i cameras -m mqtt://your.mqtt.host:1883
 ```
 
 ## Docker
 
-You can also run this bridge on docker. Be sure to specify your own mqtt connection string! This command connects port `8821` (you can change this) to the container where the bridge runs at `8021`.
+You can also run this bridge on docker. Be sure to specify your own mqtt connection string! This command connects port `8021` (you can change this) to the container where the bridge runs at `8021`.
 
 You can also set the other properties by using the `-e "IPCAM2MQTT_...=newvalue"` argument. All the properties can be set with the prefix `IPCAM2MQTT_` followed by the full name.
 
-```bash
-docker run -d -e "IPCAM2MQTT_MQTT=mqtt://your.mqtt.nl:1883" -p 8821:8021 --name ipcam2mqtt svrooij/ipcam2mqtt:latest
+```Shell
+docker run -d -e "IPCAM2MQTT_MQTT=mqtt://your.mqtt.nl:1883" -p 8021:8021 --name ipcam2mqtt svrooij/ipcam2mqtt:latest
 # Open (and follow) the logs
 docker logs ipcam2mqtt -f
 ```
@@ -115,9 +116,14 @@ The actual FTP server part is mostly copied, improved and simplified from [mqtt-
 
 ## Beer
 
-This bridge took me a lot of hours to build, so I invite everyone using it to [Buy me a beer](https://svrooij.nl/buy-me-a-beer/)
+This bridge took me a lot of hours to build, so I invite everyone using it check out my brand new Github [sponsor page][link_sponsor]
 
-[badge_paypal_donate]: https://svrooij.nl/badges/paypal_donate.svg
-[badge_patreon]: https://svrooij.nl/badges/patreon.svg
-[paypal-donations]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=T9XFJYUSPE4SG
-[patreon]: https://www.patreon.com/svrooij
+[badge_sponsor]: https://img.shields.io/badge/Sponsor-on%20Github-red
+[badge_issues]: https://img.shields.io/github/issues/svrooij/ipcam2mqtt
+[badge_npm]: https://img.shields.io/npm/v/ipcam2mqtt
+[badge_travis]: https://img.shields.io/travis/svrooij/ipcam2mqtt
+
+[link_sponsor]: https://github.com/sponsors/svrooij
+[link_issues]: https://github.com/svrooij/ipcam2mqtt/issues
+[link_npm]: https://www.npmjs.com/package/ipcam2mqtt
+[link_travis]: https://travis-ci.org/svrooij/ipcam2mqtt
