@@ -18,7 +18,7 @@ function start () {
   log.info(pkg.name + ' ' + pkg.version + ' starting')
 
   const mqttOptions = { will: {
-    topic: config.name + '/connected',
+    topic: config.instance + '/connected',
     message: 0,
     qos: 0
   } }
@@ -110,7 +110,7 @@ function publishConnectionStatus (status) {
   }
   currentStatus = status
   // 1 for mqtt online two for connected to hardware (should this be 2 after first image?)
-  client.publish(config.name + '/connected', status, {
+  client.publish(config.instance + '/connected', status, {
     qos: 0,
     retain: true
   })
@@ -124,7 +124,7 @@ function publishConnectionStatus (status) {
  * @return {String}             MQTT Topic name
  */
 function getTopicFor (device, type) {
-  return [config.name, device, type].join('/')
+  return [config.instance, device, type].join('/')
 }
 
 /**
