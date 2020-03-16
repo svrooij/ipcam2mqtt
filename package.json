@@ -33,7 +33,7 @@
     "@svrooij/ftpd": "0.3.0",
     "mqtt": "3.0.0",
     "yalm": "4.1.0",
-    "yargs": "15.0.2"
+    "yargs": "15.3.1"
   },
   "devDependencies": {
     "pre-commit": "1.2.2",
