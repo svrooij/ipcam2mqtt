@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "pre-commit": "1.2.2",
-    "semantic-release": "15.14.0",
+    "semantic-release": "17.2.3",
     "standard": "*"
   },
   "pre-commit": [
