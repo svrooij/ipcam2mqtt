@@ -6,12 +6,11 @@
     "ipcam2mqtt": "index.js"
   },
   "scripts": {
-    "test": "standard && exit 0",
-    "semantic-release": "semantic-release"
+    "test": "standard && exit 0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/svrooij/ipcam2mqtt"
+    "url": "https://github.com/svrooij/ipcam2mqtt.git"
   },
   "keywords": [
     "ip",
