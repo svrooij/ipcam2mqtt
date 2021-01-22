@@ -1,6 +1,7 @@
 # ipcam2mqtt
 
 [![npm][badge_npm]][link_npm]
+[![docker pulls][badge_docker]][link_docker]
 [![Support me on Github][badge_sponsor]][link_sponsor]
 [![travis][badge_travis]][link_travis]
 [![github issues][badge_issues]][link_issues]
@@ -122,8 +123,10 @@ This bridge took me a lot of hours to build, so I invite everyone using it check
 [badge_issues]: https://img.shields.io/github/issues/svrooij/ipcam2mqtt
 [badge_npm]: https://img.shields.io/npm/v/ipcam2mqtt
 [badge_travis]: https://img.shields.io/travis/svrooij/ipcam2mqtt
+[badge_docker]: https://img.shields.io/docker/pulls/svrooij/ipcam2mqtt
 
 [link_sponsor]: https://github.com/sponsors/svrooij
 [link_issues]: https://github.com/svrooij/ipcam2mqtt/issues
 [link_npm]: https://www.npmjs.com/package/ipcam2mqtt
 [link_travis]: https://travis-ci.org/svrooij/ipcam2mqtt
+[link_docker]: https://hub.docker.com/r/svrooij/ipcam2mqtt
