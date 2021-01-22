@@ -30,14 +30,13 @@
   },
   "homepage": "https://github.com/svrooij/ipcam2mqtt#readme",
   "dependencies": {
-    "@svrooij/ftpd": "0.3.0",
-    "mqtt": "3.0.0",
+    "@svrooij/ftpd": "0.4.4",
+    "mqtt": "4.2.6",
     "yalm": "4.1.0",
-    "yargs": "15.0.2"
+    "yargs": "16.2.0"
   },
   "devDependencies": {
     "pre-commit": "1.2.2",
-    "semantic-release": "15.14.0",
     "standard": "*"
   },
   "pre-commit": [
